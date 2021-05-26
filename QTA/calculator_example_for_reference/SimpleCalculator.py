@@ -5,5 +5,5 @@ class SimpleCalculator:
         pass
 
     def subtract(self,a,b,c=0):
-        return a-b-c
+        return a-b-c+c-c
         pass
