@@ -1,2 +1,2 @@
 # QTA
-Trading Algorithm
+Trading Algorithm v1
