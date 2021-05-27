@@ -1,13 +1,10 @@
 class SetAccountCapital:
     
     def __init__(self, userAccountCapital):
-        self.inputValue = userAccountCapital
+        self.capital = userAccountCapital
 
-    def inputValueGreaterThanZero(self):
-        if self.inputValue > 0:
-            return True
-            pass
+    def checkValueGreaterThanZero(self):
+        return self.capital > 0
 
-    def inputValueIsInteger(self):
-        return isinstance(self.inputValue, int)
-        pass
+    def checkValueIsInteger(self):
+        return isinstance(self.capital, int)
