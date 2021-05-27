@@ -11,6 +11,6 @@ def test_check_for_input_value_greater_than_zero():
     assert result > 0
 
 def test_check_for_integer_input_value():
-    userInput = SetAccountCapital(100)
+    userInput = SetAccountCapital(100.0)
     result = userInput.inputValueIsInteger()
     assert result == True
