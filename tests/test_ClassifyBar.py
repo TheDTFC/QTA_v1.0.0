@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from QTA.Signals.ClassifyBar import ClassifyBar
 import math as m
+
 # from quantTradingAlgorithm.main import RetrieveData
 # from quantTradingAlgorithm.main import FormatData
 # from quantTradingAlgorithm.main import ConsolidateBar
@@ -17,9 +18,9 @@ def test_bar_is_green():
 
 def test_bar_has_bottoming_tail():
     # check for bottoming tail green bar
-    bar = ClassifyBar(4.0, 5.3, 5.35, 3.99, 50000)
+    bar = ClassifyBar(4.0, 5.3, 5.35, 3.9, 50000)
     result = bar.bottom_tail()
-    assert m.isclose(result, 0.01)
+    assert m.isclose(result, 0.1)
 
 def test_bar_has_bottoming_tail2():
     # check for bottoming tail red bar
