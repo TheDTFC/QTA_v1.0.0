@@ -20,7 +20,7 @@ def test_bar_has_bottoming_tail():
     bar = ClassifyBar(4.0, 5.3, 5.35, 3.99, 50000)
     result = bar.bottom_tail()
     assert m.isclose(result, 0.01)
-""" 
+
 def test_bar_has_bottoming_tail2():
     # check for bottoming tail red bar
     bar = ClassifyBar(7.5, 3.6, 7.9, 3.2, 60000)
@@ -147,7 +147,7 @@ def test_bar_is_ending_move():
     result = bar.is_ending_move(bars, 2.4, 8.5)
     assert result == True
 
- """
+
 ################################
 # Unit Tests (RetrieveData)
 ################################
@@ -176,7 +176,6 @@ def test_bar_is_ending_move():
 
 # def test_reset_index():
 #     assert result == True
-
 
 ################################
 # Unit Tests (ConsolidateBar)
