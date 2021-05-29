@@ -1,4 +1,4 @@
-import QTA.Signals.ClassifyBar
+import QTA.Signals.ClassifyBar as CB
 
 
 def create_bar_list(data_frame):
@@ -10,7 +10,7 @@ def create_bar_list(data_frame):
     output = []
     i = 0
     for i in range(len(data_frame)):
-        output.append(ClassifyBar(data_frame.iat[i,2], 
+        output.append(CB.ClassifyBar(data_frame.iat[i,2], 
         data_frame.iat[i,3], data_frame.iat[i,0], 
         data_frame.iat[i,1], data_frame.iat[i,4], 
         data_frame.iloc[i].name))

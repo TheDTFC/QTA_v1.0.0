@@ -1,14 +1,19 @@
 # -*- coding: utf-8 -*-
+from pandas_datareader import data
+import pandas as pd
+import datetime as dt
+
 
 class ClassifyBar:
     __near = 0.005         #Definition of "close enough" used in is_doji method
     
-    def __init__(self, open, close, high, low, volume):
+    def __init__(self, open, close, high, low, volume, date = dt.datetime(2018, 5, 3)):
         self.open = open
         self.close = close
         self.high = high
         self.low = low
         self.volume = volume
+        self.date = date
         self.range = self.get_range()
 
     def polarity(self):
@@ -16,7 +21,10 @@ class ClassifyBar:
         Checks the polarity of the bar
         returns: true if green or doji
         """
-        return self.open <= self.close
+        if self.open <= self.close:
+            return True
+        
+        return False
 
     def top_tail(self):
         """
@@ -114,7 +122,8 @@ class ClassifyBar:
         """
         Checks if the current bar is an ending move 
         :params: recent_bars: list of n bars preceding the current bar
-        :params: SRLevel: support or resistance level
+        :params: support: support price level
+        :params: resistance: resistance price level        
         :returns: True if criteria met, false if not
         """
         if (self.is_wide_range(recent_bars)
@@ -125,7 +134,3 @@ class ClassifyBar:
                 return True
         
         return False
-
-
-
-

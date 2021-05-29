@@ -44,7 +44,7 @@ def test_bar_has_no_topping_tail():
     # check for topping tail green bar
     bar = ClassifyBar(4.0, 5.3, 5.3, 3.5, 50000)
     result = bar.top_tail()
-    assert result == 1
+    assert result == 0
 
 def test_bar_is_doji():
     bar = ClassifyBar(4.0, 4.002, 6.2, 3.5, 50000)
