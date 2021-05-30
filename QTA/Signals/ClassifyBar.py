@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
+
+
+ 
 from pandas_datareader import data
 import pandas as pd
 import datetime as dt
-
 
 class ClassifyBar:
     __near = 0.005         #Definition of "close enough" used in is_doji method
@@ -17,58 +19,58 @@ class ClassifyBar:
         self.range = self.get_range()
 
     def polarity(self):
-        """
-        Checks the polarity of the bar
-        returns: true if green or doji
-        """
+        
+        #Checks the polarity of the bar
+        #returns: true if green or doji
+        
         if self.open <= self.close:
             return True
         
         return False
 
     def top_tail(self):
-        """
-        Checks the size of the top tail 
-        :returns: size of top tail, 0 if none (float)
-        """
+
+        #Checks the size of the top tail 
+        #:returns: size of top tail, 0 if none (float)
+
         if(self.open > self.close):
             return self.high - self.open
         else:
             return self.high - self.close
 
     def bottom_tail(self):
-        """
-        Checks the size of the bottom tail
-        :returns: size of the bottom tail, 0 if none (float)
-        """
+
+        #Checks the size of the bottom tail
+        #:returns: size of the bottom tail, 0 if none (float)
+
         if(self.open < self.close):
             return self.open - self.low
         else:
             return self.close - self.low
 
     def is_doji(self):
-        """
-        Checks if the open and close prices are the same 
-        :returns: True if prices are within range of eachother, false if not
-        """
+
+        #Checks if the open and close prices are the same 
+        #:returns: True if prices are within range of eachother, false if not
+
         if  abs(self.open - self.close) < ClassifyBar.__near:
             return True
 
         return False
     
     def get_range(self):
-        """
-        :returns: Range from OPEN to CLOSE
-        """
+
+        #:returns: Range from OPEN to CLOSE
+
         return abs(self.open - self.close)
 
     def is_wide_range(self, recent_bars = []):
-        """
-        Checks if the current bar is of wide range
-        :params: recent_bars: list of n bars preceding the current bar
-        :returns: True if the current bar is larger than the last 3 bars and 
-                   two times the mean, false otherwise
-        """
+
+        #Checks if the current bar is of wide range
+        #:params: recent_bars: list of n bars preceding the current bar
+        #:returns: True if the current bar is larger than the last 3 bars and 
+        #           two times the mean, false otherwise
+
         mean = float(0.0)
 
         for bar in recent_bars:
@@ -84,12 +86,12 @@ class ClassifyBar:
         return False 
 
     def is_volume_spike(self, recent_bars = []):
-        """
-        Checks if the current bar is a volume spike 
-        :params: recent_bars: list of n bars preceding the current bar
-        :returns: True if volume is twice the average of the n bars preceding
-                   it, false if not
-        """
+
+        #Checks if the current bar is a volume spike 
+        #:params: recent_bars: list of n bars preceding the current bar
+        #:returns: True if volume is twice the average of the n bars preceding
+        #           it, false if not
+
         mean = float(0.0)
 
         for bar in recent_bars:
@@ -102,12 +104,12 @@ class ClassifyBar:
         return False
 
     def is_igniting_move(self, recent_bars = [], support = 0, resistance = 0):
-        """
-        Checks if the current bar is an igniting move 
-        :params: recent_bars: list of n bars preceding the current bar
-        :params: SRLevel: support or resistance level
-        :returns: True if criteria met, false if not
-        """
+
+        #Checks if the current bar is an igniting move 
+        #:params: recent_bars: list of n bars preceding the current bar
+        #:params: SRLevel: support or resistance level
+        #:returns: True if criteria met, false if not
+
         if (self.is_wide_range(recent_bars)
         and self.is_volume_spike(recent_bars)):
             if self.polarity and self.close > resistance:
@@ -119,13 +121,13 @@ class ClassifyBar:
 
 
     def is_ending_move(self, recent_bars = [], support = 0, resistance = 0):
-        """
-        Checks if the current bar is an ending move 
-        :params: recent_bars: list of n bars preceding the current bar
-        :params: support: support price level
-        :params: resistance: resistance price level        
-        :returns: True if criteria met, false if not
-        """
+
+        #Checks if the current bar is an ending move 
+        #:params: recent_bars: list of n bars preceding the current bar
+        #:params: support: support price level
+        #:params: resistance: resistance price level        
+        #:returns: True if criteria met, false if not
+
         if (self.is_wide_range(recent_bars)
         and self.is_volume_spike(recent_bars)):
             if self.polarity and self.close < resistance:
@@ -134,3 +136,5 @@ class ClassifyBar:
                 return True
         
         return False
+
+

@@ -1,3 +1,5 @@
+
+
 import datetime as dt
 import QTA.DataConfiguration.FormatData as FD
 import QTA.DataConfiguration.RetrieveData as RD
@@ -17,3 +19,4 @@ def test_df_to_bar_list():
     #    + str(bars[i].close) )
 
     assert not (bars == None)
+

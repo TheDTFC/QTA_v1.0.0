@@ -1,12 +1,12 @@
+
 import QTA.Signals.ClassifyBar as CB
 
-
 def create_bar_list(data_frame):
-    """
-    Converts a data frame to a list of bars
-    :params: data_frame: pandas data frame of stock data
-    :returns: List of bars
-    """
+    
+    #Converts a data frame to a list of bars
+    #:params: data_frame: pandas data frame of stock data
+    #:returns: List of bars
+    
     output = []
     i = 0
     for i in range(len(data_frame)):
@@ -26,3 +26,4 @@ def format_df(data):
                                 'Close': 'C', 'Adj Close': 'AC',
                                 'Volume': 'V'})
     return data
+

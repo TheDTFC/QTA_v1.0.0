@@ -1,6 +1,8 @@
 import datetime as dt
 import QTA.DataConfiguration.RetrieveData as RD
 
+
+
 def test_read_data_from_yahoo():
     #checks to make sure the dataframe is returned
     start = dt.datetime(2018, 1, 1)
@@ -23,5 +25,4 @@ def test_input_end_date_is_valid():
     result = RD.get_data('AAPL', start, end)
 
     assert (result.iloc[-1].name == dt.datetime(2020, 6, 2))
-
 
