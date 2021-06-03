@@ -1,8 +1,6 @@
 import datetime as dt
 import QTA.DataConfiguration.RetrieveData as RD
 
-
-
 def test_read_data_from_yahoo():
     #checks to make sure the dataframe is returned
     start = dt.datetime(2018, 1, 1)

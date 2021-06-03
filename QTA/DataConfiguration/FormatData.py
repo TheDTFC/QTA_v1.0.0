@@ -27,3 +27,13 @@ def format_df(data):
                                 'Volume': 'V'})
     return data
 
+def make_csv(data_frame, name):
+    data_frame.to_csv(name + '.csv')
+
+def consolidate_bars(df, timeFrame):
+    df_new = df.resample(timeFrame).agg({'Open': 'first', 
+                                 'High': 'max', 
+                                 'Low': 'min', 
+                                 'Close': 'last'})
+
+    return df_new
