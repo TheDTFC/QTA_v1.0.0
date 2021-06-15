@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\QTA",
+    "\\QTA\\DataConfiguration",
+    "\\QTA\\Execution",
+    "\\QTA\\Signals",
+    "\\QTA\\UserInput",
+    "\\tests"
+  ],
+  "SelectedNode": "\\QTA\\Signals\\SimpleMovingAverage.py",
+  "PreviewInSolutionExplorer": false
+}
