@@ -1,10 +1,9 @@
 import datetime as dt
 import QTA.DataConfiguration.RetrieveData as RD
 from QTA.Signals.SimpleMovingAverage import SimpleMovingAverage
-from pandas._testing import assert_series_equal
 
 def test_display_data():
-    SMA = SimpleMovingAverage(10,'AAPL', dt.datetime(2018, 1, 1), dt.datetime(2018, 5, 3))
+    SMA = SimpleMovingAverage(0,'AAPL', dt.datetime(2018, 1, 1), dt.datetime(2018, 5, 3))
     SMA.calculate_SMA_data()
 
 def test_SMA_data():
