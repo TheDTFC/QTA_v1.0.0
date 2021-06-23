@@ -18,15 +18,23 @@ class ClassifyBar:
         self.date = date
         self.range = self.get_range()
 
+    def bullish_engulfing_pattern(self):
+        a = self.open.shift(1) <= self.close
+        b = self.close.shift(1) >= self.open
+        c = self.range > self.range.shift(1)
+        d = self.polarity()
+        e = ~d
+        return a & b & c & d & e.shift(1) 
+
     def polarity(self):
         
         #Checks the polarity of the bar
         #returns: true if green or doji
         
-        if self.open <= self.close:
-            return True
+        return self.open <= self.close
+            #return True
         
-        return False
+        #return False
 
     def top_tail(self):
 
